@@ -222,4 +222,7 @@ export default {
 .motor-card {
     margin-bottom: 10px;
 }
+.motor-feedback-statistic {
+    text-align: center;
+}
 </style>
