@@ -1,57 +1,55 @@
 <template>
-    <el-container class="motor-card-container">
-        <el-card class="motor-card" shadow="hover">
-            <template #header>
-                <el-row class="card-header">
-                    <span>waist_yaw</span>
-                    <el-button @click="motor_1 = 0" class="stop-button" type="primary" circle :disabled="!motor_1_initialized"><el-icon><RefreshLeft /></el-icon></el-button>
-                </el-row>
-            </template>
-            <el-row justify="space-around">
-                <el-statistic class="motor-feedback-statistic" title="position" :value="motor_1_feedback.position" :precision="3" suffix="rad" />
-                <el-statistic class="motor-feedback-statistic" title="velocity" :value="motor_1_feedback.velocity" :precision="3" suffix="rad/s" />
-                <el-statistic class="motor-feedback-statistic" title="torque" :value="motor_1_feedback.torque" :precision="3" suffix="N·m" />
+    <el-card class="motor-card" shadow="hover">
+        <template #header>
+            <el-row class="card-header">
+                <span>waist_yaw</span>
+                <el-button @click="motor_1 = 0" class="stop-button" type="primary" circle :disabled="!motor_1_initialized"><el-icon><RefreshLeft /></el-icon></el-button>
             </el-row>
-            <div class="slider-block">
-                <span class="demonstration">position</span>
-                <el-slider v-model="motor_1" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor_1_initialized"/>
-            </div>
-        </el-card>
-        <el-card class="motor-card" shadow="hover">
-            <template #header>
-                <el-row class="card-header">
-                    <span>left_hip_yaw</span>
-                    <el-button @click="motor_2 = 0" class="stop-button" type="primary" circle :disabled="!motor_2_initialized"><el-icon><RefreshLeft /></el-icon></el-button>
-                </el-row>
-            </template>
-            <el-row justify="space-around">
-                <el-statistic class="motor-feedback-statistic" title="position" :value="motor_2_feedback.position" :precision="3" suffix="rad" />
-                <el-statistic class="motor-feedback-statistic" title="velocity" :value="motor_2_feedback.velocity" :precision="3" suffix="rad/s" />
-                <el-statistic class="motor-feedback-statistic" title="torque" :value="motor_2_feedback.torque" :precision="3" suffix="N·m" />
+        </template>
+        <el-row justify="space-around">
+            <el-statistic class="motor-feedback-statistic" title="position" :value="motor_1_feedback.position" :precision="3" suffix="rad" />
+            <el-statistic class="motor-feedback-statistic" title="velocity" :value="motor_1_feedback.velocity" :precision="3" suffix="rad/s" />
+            <el-statistic class="motor-feedback-statistic" title="torque" :value="motor_1_feedback.torque" :precision="3" suffix="N·m" />
+        </el-row>
+        <div class="slider-block">
+            <span class="demonstration">position</span>
+            <el-slider v-model="motor_1" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor_1_initialized"/>
+        </div>
+    </el-card>
+    <el-card class="motor-card" shadow="hover">
+        <template #header>
+            <el-row class="card-header">
+                <span>left_hip_yaw</span>
+                <el-button @click="motor_2 = 0" class="stop-button" type="primary" circle :disabled="!motor_2_initialized"><el-icon><RefreshLeft /></el-icon></el-button>
             </el-row>
-            <div class="slider-block">
-                <span class="demonstration">position</span>
-                <el-slider v-model="motor_2" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor_2_initialized"/>
-            </div>
-        </el-card>
-        <el-card class="motor-card" shadow="hover">
-            <template #header>
-                <el-row class="card-header">
-                    <span>right_hip_yaw</span>
-                    <el-button @click="motor_8 = 0" class="stop-button" type="primary" circle :disabled="!motor_8_initialized"><el-icon><RefreshLeft /></el-icon></el-button>
-                </el-row>
-            </template>
-            <el-row justify="space-around">
-                <el-statistic class="motor-feedback-statistic" title="position" :value="motor_8_feedback.position" :precision="3" suffix="rad" />
-                <el-statistic class="motor-feedback-statistic" title="velocity" :value="motor_8_feedback.velocity" :precision="3" suffix="rad/s" />
-                <el-statistic class="motor-feedback-statistic" title="torque" :value="motor_8_feedback.torque" :precision="3" suffix="N·m" />
+        </template>
+        <el-row justify="space-around">
+            <el-statistic class="motor-feedback-statistic" title="position" :value="motor_2_feedback.position" :precision="3" suffix="rad" />
+            <el-statistic class="motor-feedback-statistic" title="velocity" :value="motor_2_feedback.velocity" :precision="3" suffix="rad/s" />
+            <el-statistic class="motor-feedback-statistic" title="torque" :value="motor_2_feedback.torque" :precision="3" suffix="N·m" />
+        </el-row>
+        <div class="slider-block">
+            <span class="demonstration">position</span>
+            <el-slider v-model="motor_2" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor_2_initialized"/>
+        </div>
+    </el-card>
+    <el-card class="motor-card" shadow="hover">
+        <template #header>
+            <el-row class="card-header">
+                <span>right_hip_yaw</span>
+                <el-button @click="motor_8 = 0" class="stop-button" type="primary" circle :disabled="!motor_8_initialized"><el-icon><RefreshLeft /></el-icon></el-button>
             </el-row>
-            <div class="slider-block">
-                <span class="demonstration">position</span>
-                <el-slider v-model="motor_8" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor_8_initialized"/>
-            </div>
-        </el-card>
-    </el-container>
+        </template>
+        <el-row justify="space-around">
+            <el-statistic class="motor-feedback-statistic" title="position" :value="motor_8_feedback.position" :precision="3" suffix="rad" />
+            <el-statistic class="motor-feedback-statistic" title="velocity" :value="motor_8_feedback.velocity" :precision="3" suffix="rad/s" />
+            <el-statistic class="motor-feedback-statistic" title="torque" :value="motor_8_feedback.torque" :precision="3" suffix="N·m" />
+        </el-row>
+        <div class="slider-block">
+            <span class="demonstration">position</span>
+            <el-slider v-model="motor_8" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor_8_initialized"/>
+        </div>
+    </el-card>
 </template>
 
 <script>
@@ -186,10 +184,6 @@ export default {
 }
 .slider-block .demonstration + .el-slider {
     flex: 0 0 85%;
-}
-.motor-card-container {
-    display: flex;
-    flex-direction: column;
 }
 .motor-card {
     margin-bottom: 10px;

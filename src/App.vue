@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-    <el-container class="main-page">
+    <el-container>
         <el-header>
             <el-row justify="center">
                 <el-col class="main-page-title" :span="8" :offset="8">
@@ -53,10 +53,6 @@ export default {
 </template>
 
 <style scoped>
-
-.main-page {
-    min-height: 100vh;
-}
 
 .main-page-title {
     display: flex;

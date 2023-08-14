@@ -1,39 +1,37 @@
 <template>
-    <el-container class="motor-card-container" v-for="motor in motors">
-        <el-card class="motor-card" shadow="hover">
-            <template #header>
-                <el-row class="card-header">
-                    <span>Motor {{ motor.id }}</span>
-                    <el-button @click="stopMotor(motor.id)" class="stop-button" type="danger" circle><el-icon><VideoPause /></el-icon></el-button>
-                </el-row>
-            </template>
-            <el-row justify="space-around">
-                <el-statistic class="motor-feedback-statistic" title="position" :value="motor.feedback.position" :precision="3" suffix="rad" />
-                <el-statistic class="motor-feedback-statistic" title="velocity" :value="motor.feedback.velocity" :precision="3" suffix="rad/s" />
-                <el-statistic class="motor-feedback-statistic" title="torque" :value="motor.feedback.torque" :precision="3" suffix="N·m" />
+    <el-card class="motor-card" shadow="hover" v-for="motor in motors">
+        <template #header>
+            <el-row class="card-header">
+                <span>Motor {{ motor.id }}</span>
+                <el-button @click="stopMotor(motor.id)" class="stop-button" type="danger" circle><el-icon><VideoPause /></el-icon></el-button>
             </el-row>
-            <div class="slider-block">
-                <span class="demonstration">position</span>
-                <el-slider @input="controlMotor(motor.id)" v-model="motor.command.position" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
-            </div>
-            <div class="slider-block">
-                <span class="demonstration">velocity</span>
-                <el-slider @input="controlMotor(motor.id)" v-model="motor.command.velocity" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
-            </div>
-            <div class="slider-block">
-                <span class="demonstration">torque</span>
-                <el-slider @input="controlMotor(motor.id)" v-model="motor.command.torque" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
-            </div>
-            <div class="slider-block">
-                <span class="demonstration">kp</span>
-                <el-slider @input="controlMotor(motor.id)" v-model="motor.command.kp" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
-            </div>
-            <div class="slider-block">
-                <span class="demonstration">kd</span>
-                <el-slider @input="controlMotor(motor.id)" v-model="motor.command.kd" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
-            </div>
-        </el-card>
-    </el-container>
+        </template>
+        <el-row justify="space-around">
+            <el-statistic class="motor-feedback-statistic" title="position" :value="motor.feedback.position" :precision="3" suffix="rad" />
+            <el-statistic class="motor-feedback-statistic" title="velocity" :value="motor.feedback.velocity" :precision="3" suffix="rad/s" />
+            <el-statistic class="motor-feedback-statistic" title="torque" :value="motor.feedback.torque" :precision="3" suffix="N·m" />
+        </el-row>
+        <div class="slider-block">
+            <span class="demonstration">position</span>
+            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.position" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
+        </div>
+        <div class="slider-block">
+            <span class="demonstration">velocity</span>
+            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.velocity" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
+        </div>
+        <div class="slider-block">
+            <span class="demonstration">torque</span>
+            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.torque" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
+        </div>
+        <div class="slider-block">
+            <span class="demonstration">kp</span>
+            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.kp" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
+        </div>
+        <div class="slider-block">
+            <span class="demonstration">kd</span>
+            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.kd" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
+        </div>
+    </el-card>
 </template>
 
 <script>
@@ -214,10 +212,6 @@ export default {
 .card-header {
     align-items: center;
     justify-content: space-between;
-}
-.motor-card-container {
-    display: flex;
-    flex-direction: column;
 }
 .motor-card {
     margin-bottom: 10px;
