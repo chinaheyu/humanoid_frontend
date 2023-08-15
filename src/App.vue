@@ -46,7 +46,9 @@ export default {
                 </el-scrollbar>
             </el-aside>
             <el-main>
-                <router-view :robot_hostname="robot_hostname"></router-view>
+                <el-scrollbar>
+                    <router-view :robot_hostname="robot_hostname"></router-view>
+                </el-scrollbar>
             </el-main>
         </el-container>
     </el-container>
