@@ -13,7 +13,7 @@
         </el-row>
         <div class="slider-block">
             <span class="demonstration">position</span>
-            <el-slider @input="controlMotor(motor.id, motor.position)" v-model="motor.position" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
+            <el-slider @input="controlMotor(motor.id, motor.position)" v-model="motor.position" show-input :min="motor.initial_position - 2 * Math.PI" :max="motor.initial_position + 2 * Math.PI" :step="0.01" :disabled="!motor.initialized"/>
         </div>
     </el-card>
 </template>
@@ -104,6 +104,7 @@ export default {
                 for (const item of data["motors"]) {
                     for (let motor of this.motors) {
                         if (item["id"] === motor.id) {
+                            motor.initial_position = item["position"]
                             motor.position = item["position"]
                             motor.initialized = true
                         }
