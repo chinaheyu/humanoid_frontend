@@ -3,7 +3,7 @@
         <template #header>
             <el-row class="card-header">
                 <span>{{ motor.name }}</span>
-                <el-button @click="motor.position = motor.initial_position" class="stop-button" type="primary" circle :disabled="!motor.initialized"><el-icon><RefreshLeft /></el-icon></el-button>
+                <el-button @click="resetMotorPosition(motor.id)" class="stop-button" type="primary" circle :disabled="!motor.initialized"><el-icon><RefreshLeft /></el-icon></el-button>
             </el-row>
         </template>
         <el-row justify="space-around">
@@ -79,6 +79,14 @@ export default {
                     "velocity": 0,
                 })
             })
+        },
+        resetMotorPosition (id) {
+            for (let motor of this.motors) {
+                if (motor.id === id && motor.initialized) {
+                    this.controlMotor(motor.id, motor.initial_position);
+                    motor.position = motor.initial_position;
+                }
+            }
         },
         updateMotorFeedback () {
             for (let motor of this.motors) {
