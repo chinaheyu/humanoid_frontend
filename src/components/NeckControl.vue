@@ -80,7 +80,7 @@ export default {
     white-space: nowrap;
 }
 .slider-block .demonstration + .el-slider {
-    flex: 0 0 60%;
+    flex: 0 0 70%;
 }
 .reset-button {
     position: fixed;

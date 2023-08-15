@@ -11,7 +11,7 @@ export default {
 
 <template>
     <el-container>
-        <el-header>
+        <el-header class="page-header">
             <el-row justify="center">
                 <el-col class="main-page-title" :span="8" :offset="8">
                     <b>Humanoid Control Panel</b>
@@ -23,7 +23,7 @@ export default {
         </el-header>
         <el-container>
             <el-aside width="200px">
-                <el-scrollbar>
+                <el-scrollbar class="menu-scrollbar">
                     <el-menu router="true">
                         <el-sub-menu index="1">
                             <template #title>
@@ -46,7 +46,7 @@ export default {
                 </el-scrollbar>
             </el-aside>
             <el-main>
-                <el-scrollbar>
+                <el-scrollbar class="main-scrollbar">
                     <router-view :robot_hostname="robot_hostname"></router-view>
                 </el-scrollbar>
             </el-main>
@@ -55,6 +55,15 @@ export default {
 </template>
 
 <style scoped>
+
+.page-header {
+    height: 60px;
+    padding: 20px;
+}
+
+.main-scrollbar, .menu-scrollbar {
+    height: calc(100vh - 100px);
+}
 
 .main-page-title {
     display: flex;

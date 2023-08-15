@@ -13,7 +13,7 @@
         </el-row>
         <div class="slider-block">
             <span class="demonstration">position</span>
-            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.position" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
+            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.position" show-input :min="motor.initial_position - 10" :max="motor.initial_position + 10" :step="0.01" :disabled="!motor.initialized"/>
         </div>
         <div class="slider-block">
             <span class="demonstration">velocity</span>
@@ -25,11 +25,11 @@
         </div>
         <div class="slider-block">
             <span class="demonstration">kp</span>
-            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.kp" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
+            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.kp" show-input :min="0" :max="10" :step="0.1" :disabled="!motor.initialized"/>
         </div>
         <div class="slider-block">
             <span class="demonstration">kd</span>
-            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.kd" show-input :min="-10" :max="10" :step="0.01" :disabled="!motor.initialized"/>
+            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.kd" show-input :min="0" :max="10" :step="0.1" :disabled="!motor.initialized"/>
         </div>
     </el-card>
 </template>
@@ -44,6 +44,7 @@ export default {
                 {
                     id: 9,
                     initialized: false,
+                    initial_position: 0,
                     command: {
                         position: 0,
                         velocity: 0,
@@ -60,6 +61,7 @@ export default {
                 {
                     id: 10,
                     initialized: false,
+                    initial_position: 0,
                     command: {
                         position: 0,
                         velocity: 0,
@@ -76,6 +78,7 @@ export default {
                 {
                     id: 11,
                     initialized: false,
+                    initial_position: 0,
                     command: {
                         position: 0,
                         velocity: 0,
@@ -92,6 +95,7 @@ export default {
                 {
                     id: 12,
                     initialized: false,
+                    initial_position: 0,
                     command: {
                         position: 0,
                         velocity: 0,
@@ -108,6 +112,7 @@ export default {
                 {
                     id: 13,
                     initialized: false,
+                    initial_position: 0,
                     command: {
                         position: 0,
                         velocity: 0,
@@ -180,6 +185,7 @@ export default {
                     for (let motor of this.motors) {
                         if (item["id"] === motor.id) {
                             motor.command.position = item["position"]
+                            motor.initial_position = item["position"]
                             motor.command.velocity = item["velocity"]
                             motor.command.torque = item["torque"]
                             motor.initialized = true
