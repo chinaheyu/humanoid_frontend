@@ -127,7 +127,7 @@ export default {
                     "left_eyelid_up_down": this.left_eyelid_up_down_value,
                     "left_lip_corner_push_pull": this.left_lip_corner_push_pull_value,
                     "right_cheek_up_down": this.right_cheek_up_down_value,
-                    "right_eyebrow_up_down": this.right_eyelid_up_down_value,
+                    "right_eyebrow_up_down": this.right_eyebrow_up_down_value,
                     "right_eyelid_up_down": this.right_eyelid_up_down_value,
                     "right_lip_corner_push_pull": this.right_lip_corner_push_pull_value,
                 })
