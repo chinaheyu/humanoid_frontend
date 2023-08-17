@@ -5,14 +5,17 @@ import NeckControl from "@/components/NeckControl.vue";
 import WaistControl from "@/components/WaistControl.vue";
 import LeftLegControl from "@/components/LeftLegControl.vue";
 import RightLegControl from "@/components/RightLegControl.vue";
+import LeftArmControl from "@/components/LeftArmControl.vue";
+import RightArmControl from "@/components/RightArmControl.vue";
 
 const routes = [
     { path: '/1-1', component: FaceControl },
     { path: '/1-2', component: NeckControl },
-    { path: '/2-1', component: WaistControl },
-    { path: '/2-2', component: LeftLegControl },
-    { path: '/2-3', component: RightLegControl },
-
+    { path: '/2-1', component: LeftArmControl },
+    { path: '/2-2', component: RightArmControl },
+    { path: '/3-1', component: WaistControl },
+    { path: '/3-2', component: LeftLegControl },
+    { path: '/3-3', component: RightLegControl },
 ]
 
 const router = createRouter({

@@ -41,6 +41,7 @@ export default {
             this.pitch_velocity_value = 0.0
             this.yaw_angle_value = 0.0
             this.yaw_max_velocity_value = 3.14
+            this.sendToRobot()
         },
         sendToRobot () {
             fetch(`//${this.robot_hostname}/head/neck`, {

@@ -113,6 +113,7 @@ export default {
             this.right_cheek_up_down_value = 1500
             this.left_lip_corner_push_pull_value = 1500
             this.right_lip_corner_push_pull_value = 1500
+            this.sendToRobot()
         },
         sendToRobot () {
             fetch(`//${this.robot_hostname}/head/face`, {

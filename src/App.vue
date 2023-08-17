@@ -36,11 +36,19 @@ export default {
                         <el-sub-menu index="2">
                             <template #title>
                                 <el-icon><Plus /></el-icon>
-                                <span>Lower Body</span>
+                                <span>Upper Limbs</span>
                             </template>
-                            <el-menu-item index="2-1">Waist Control</el-menu-item>
-                            <el-menu-item index="2-2">Left Leg Control</el-menu-item>
-                            <el-menu-item index="2-3">Right Leg Control</el-menu-item>
+                            <el-menu-item index="2-1">Left Arm Control</el-menu-item>
+                            <el-menu-item index="2-2">Right Arm Control</el-menu-item>
+                        </el-sub-menu>
+                        <el-sub-menu index="3">
+                            <template #title>
+                                <el-icon><Plus /></el-icon>
+                                <span>Lower Limbs</span>
+                            </template>
+                            <el-menu-item index="3-1">Waist Control</el-menu-item>
+                            <el-menu-item index="3-2">Left Leg Control</el-menu-item>
+                            <el-menu-item index="3-3">Right Leg Control</el-menu-item>
                         </el-sub-menu>
                     </el-menu>
                 </el-scrollbar>
