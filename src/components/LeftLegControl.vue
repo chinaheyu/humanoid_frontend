@@ -25,7 +25,7 @@
         </div>
         <div class="slider-block">
             <span class="demonstration">kp</span>
-            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.kp" show-input :min="0" :max="10" :step="0.1" :disabled="!motor.initialized"/>
+            <el-slider @input="controlMotor(motor.id)" v-model="motor.command.kp" show-input :min="0" :max="100" :step="0.1" :disabled="!motor.initialized"/>
         </div>
         <div class="slider-block">
             <span class="demonstration">kd</span>
