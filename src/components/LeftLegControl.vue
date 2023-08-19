@@ -147,6 +147,7 @@ export default {
         updateMotorFeedback () {
             for (let motor of this.motors) {
                 if (motor.initialized) {
+                    this.controlMotor(motor.id)
                     fetch(`//${this.robot_hostname}/motor/feedback?id=${motor.id}`)
                         .then((response) => response.json())
                         .then((data) => {
