@@ -19,6 +19,10 @@
             <div class="motor-chart" ref="torqueChart"></div>
         </el-row>
         <div class="slider-block">
+            <span class="demonstration">time range</span>
+            <el-slider v-model="charts.maxLength" show-input :min="1" :max="1000" :step="1" :disabled="!motor.initialized"/>
+        </div>
+        <div class="slider-block">
             <span class="demonstration">position</span>
             <el-slider v-model="motor.command.position" show-input :min="motor.initial_position - 10" :max="motor.initial_position + 10" :step="0.01" :disabled="!motor.initialized"/>
         </div>
@@ -228,21 +232,21 @@ export default {
                         this.charts.position.option.series[0].data.push([data["timestamp"] / 1000, this.normalizeAngle(data["position"])])
                         this.charts.velocity.option.series[0].data.push([data["timestamp"] / 1000, data["velocity"]])
                         this.charts.torque.option.series[0].data.push([data["timestamp"] / 1000, data["torque"]])
-                        if (this.charts.position.option.series[0].data.length > this.charts.maxLength)
+                        while (this.charts.position.option.series[0].data.length > this.charts.maxLength)
                             this.charts.position.option.series[0].data.shift()
-                        if (this.charts.velocity.option.series[0].data.length > this.charts.maxLength)
+                        while (this.charts.velocity.option.series[0].data.length > this.charts.maxLength)
                             this.charts.velocity.option.series[0].data.shift()
-                        if (this.charts.torque.option.series[0].data.length > this.charts.maxLength)
+                        while (this.charts.torque.option.series[0].data.length > this.charts.maxLength)
                             this.charts.torque.option.series[0].data.shift()
 
                         this.charts.position.option.series[1].data.push([data["timestamp"] / 1000, this.normalizeAngle(this.motor.command.position)])
                         this.charts.velocity.option.series[1].data.push([data["timestamp"] / 1000, this.motor.command.velocity])
                         this.charts.torque.option.series[1].data.push([data["timestamp"] / 1000, this.motor.command.torque])
-                        if (this.charts.position.option.series[1].data.length > this.charts.maxLength)
+                        while (this.charts.position.option.series[1].data.length > this.charts.maxLength)
                             this.charts.position.option.series[1].data.shift()
-                        if (this.charts.velocity.option.series[1].data.length > this.charts.maxLength)
+                        while (this.charts.velocity.option.series[1].data.length > this.charts.maxLength)
                             this.charts.velocity.option.series[1].data.shift()
-                        if (this.charts.torque.option.series[1].data.length > this.charts.maxLength)
+                        while (this.charts.torque.option.series[1].data.length > this.charts.maxLength)
                             this.charts.torque.option.series[1].data.shift()
 
                         this.charts.position.chart.setOption(this.charts.position.option)
