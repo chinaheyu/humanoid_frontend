@@ -25,31 +25,43 @@ export default {
             <el-aside width="200px">
                 <el-scrollbar class="menu-scrollbar">
                     <el-menu router="true">
-                        <el-sub-menu index="1">
+                        <el-menu-item index="1">
+                            <template #title>
+                                <el-icon><House /></el-icon>
+                                <span>Home</span>
+                            </template>
+                        </el-menu-item>
+                        <el-sub-menu index="2">
                             <template #title>
                                 <el-icon><Plus /></el-icon>
                                 <span>Head</span>
                             </template>
-                            <el-menu-item index="1-1">Face Control</el-menu-item>
-                            <el-menu-item index="1-2">Neck Control</el-menu-item>
-                        </el-sub-menu>
-                        <el-sub-menu index="2">
-                            <template #title>
-                                <el-icon><Plus /></el-icon>
-                                <span>Upper Limbs</span>
-                            </template>
-                            <el-menu-item index="2-1">Left Arm Control</el-menu-item>
-                            <el-menu-item index="2-2">Right Arm Control</el-menu-item>
+                            <el-menu-item index="2-1">Face Control</el-menu-item>
+                            <el-menu-item index="2-2">Neck Control</el-menu-item>
                         </el-sub-menu>
                         <el-sub-menu index="3">
                             <template #title>
                                 <el-icon><Plus /></el-icon>
+                                <span>Upper Limbs</span>
+                            </template>
+                            <el-menu-item index="3-1">Left Arm Control</el-menu-item>
+                            <el-menu-item index="3-2">Right Arm Control</el-menu-item>
+                        </el-sub-menu>
+                        <el-sub-menu index="4">
+                            <template #title>
+                                <el-icon><Plus /></el-icon>
                                 <span>Lower Limbs</span>
                             </template>
-                            <el-menu-item index="3-1">Waist Control</el-menu-item>
-                            <el-menu-item index="3-2">Left Leg Control</el-menu-item>
-                            <el-menu-item index="3-3">Right Leg Control</el-menu-item>
+                            <el-menu-item index="4-1">Waist Control</el-menu-item>
+                            <el-menu-item index="4-2">Left Leg Control</el-menu-item>
+                            <el-menu-item index="4-3">Right Leg Control</el-menu-item>
                         </el-sub-menu>
+                        <el-menu-item index="5">
+                            <template #title>
+                                <el-icon><Odometer /></el-icon>
+                                <span>Motor Test</span>
+                            </template>
+                        </el-menu-item>
                     </el-menu>
                 </el-scrollbar>
             </el-aside>
