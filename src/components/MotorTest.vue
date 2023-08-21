@@ -75,15 +75,31 @@ export default {
                 position: {
                     chart: null,
                     option: {
+                        title: {
+                            text: "position",
+                        },
+                        animation: false,
+                        color: ["blue", "red"],
                         legend: {
                             data: ['feedback', 'target'],
-                            icon: "line"
+                            icon: "line",
+                            lineStyle: {
+                                color: "inherit"
+                            }
                         },
                         xAxis: {
-                            type: 'time'
+                            name: "time",
+                            type: 'time',
+                            axisPointer: {
+                                show: true,
+                            },
                         },
                         yAxis: {
-                            type: 'value'
+                            name: "rad",
+                            type: 'value',
+                            axisPointer: {
+                                show: true,
+                            },
                         },
                         series: [
                             {
@@ -104,15 +120,28 @@ export default {
                 velocity: {
                     chart: null,
                     option: {
+                        title: {
+                            text: "velocity",
+                        },
+                        animation: false,
+                        color: ["blue", "red"],
                         legend: {
                             data: ['feedback', 'target'],
                             icon: "line"
                         },
                         xAxis: {
-                            type: 'time'
+                            name: "time",
+                            type: 'time',
+                            axisPointer: {
+                                show: true,
+                            },
                         },
                         yAxis: {
-                            type: 'value'
+                            name: "rad/s",
+                            type: 'value',
+                            axisPointer: {
+                                show: true,
+                            },
                         },
                         series: [
                             {
@@ -133,15 +162,28 @@ export default {
                 torque: {
                     chart: null,
                     option: {
+                        title: {
+                            text: "torque",
+                        },
+                        animation: false,
+                        color: ["blue", "red"],
                         legend: {
                             data: ['feedback', 'target'],
                             icon: "line"
                         },
                         xAxis: {
-                            type: 'time'
+                            name: "time",
+                            type: 'time',
+                            axisPointer: {
+                                show: true,
+                            },
                         },
                         yAxis: {
-                            type: 'value'
+                            name: "N·m",
+                            type: 'value',
+                            axisPointer: {
+                                show: true,
+                            },
                         },
                         series: [
                             {

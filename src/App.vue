@@ -58,7 +58,7 @@ export default {
                         </el-sub-menu>
                         <el-menu-item index="5">
                             <template #title>
-                                <el-icon><Odometer /></el-icon>
+                                <el-icon><Pointer /></el-icon>
                                 <span>Motor Test</span>
                             </template>
                         </el-menu-item>
