@@ -55,6 +55,7 @@ export default {
                             <el-menu-item index="4-1">Waist Control</el-menu-item>
                             <el-menu-item index="4-2">Left Leg Control</el-menu-item>
                             <el-menu-item index="4-3">Right Leg Control</el-menu-item>
+                            <el-menu-item index="4-4">Feet Control</el-menu-item>
                         </el-sub-menu>
                         <el-menu-item index="5">
                             <template #title>

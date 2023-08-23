@@ -9,6 +9,7 @@ import RightLegControl from "@/components/RightLegControl.vue";
 import LeftArmControl from "@/components/LeftArmControl.vue";
 import RightArmControl from "@/components/RightArmControl.vue";
 import MotorTest from "@/components/MotorTest.vue";
+import FeetControl from "@/components/FeetControl.vue";
 
 const routes = [
     { path: '/1', component: Home },
@@ -19,6 +20,7 @@ const routes = [
     { path: '/4-1', component: WaistControl },
     { path: '/4-2', component: LeftLegControl },
     { path: '/4-3', component: RightLegControl },
+    { path: '/4-4', component: FeetControl },
     { path: '/5', component: MotorTest },
 ]
 
