@@ -63,6 +63,14 @@ export default {
                                 <span>Motor Test</span>
                             </template>
                         </el-menu-item>
+                        <el-sub-menu index="6">
+                            <template #title>
+                                <el-icon><Plus /></el-icon>
+                                <span>Leg Position</span>
+                            </template>
+                            <el-menu-item index="6-1">Left Leg Control</el-menu-item>
+                            <el-menu-item index="6-2">Right Leg Control</el-menu-item>
+                        </el-sub-menu>
                     </el-menu>
                 </el-scrollbar>
             </el-aside>
