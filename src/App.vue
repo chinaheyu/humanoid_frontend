@@ -5,7 +5,10 @@ export default {
         return {
             robot_hostname: "orin-desktop.local:5000"
         }
-    }
+    },
+    mounted() {
+        this.robot_hostname = window.location.hostname + ":5000"
+    },
 }
 </script>
 
