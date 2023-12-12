@@ -5,10 +5,7 @@ export default {
         return {
             robot_hostname: "orin-desktop.local:5000"
         }
-    },
-    mounted() {
-        this.robot_hostname = window.location.hostname + ":5000"
-    },
+    }
 }
 </script>
 
@@ -49,6 +46,7 @@ export default {
                             </template>
                             <el-menu-item index="3-1">Left Arm Control</el-menu-item>
                             <el-menu-item index="3-2">Right Arm Control</el-menu-item>
+                            <el-menu-item index="3-3">Play Arm</el-menu-item>
                         </el-sub-menu>
                         <el-sub-menu index="4">
                             <template #title>
