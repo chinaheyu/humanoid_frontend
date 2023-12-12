@@ -5,11 +5,11 @@
                 <span>Frames</span>
             </el-row>
         </template>
-        <el-row justify="space-around">
+        <el-row>
             <el-button class="frame-button" @click="playToFrame(frame, this.duration)" v-for="frame in frames">{{ frame }}</el-button>
         </el-row>
         <el-row class="time-slider" justify="space-around">
-            <el-slider v-model="duration" show-input :min="0.1" :max="10.0" :step="0.1" />
+            <el-slider v-model="duration" show-input :min="0.5" :max="10.0" :step="0.1" />
         </el-row>
     </el-card>
     <el-card class="frame-card" shadow="hover">
@@ -33,6 +33,9 @@
             </el-input>
         </el-row>
     </el-card>
+    <div>
+        注意：在退出示教模式前，必须<span style="font-weight: bold;color: red;">校准</span>手臂电机
+    </div>
     <el-dialog v-model="confirm_dialog_visible" title="Caution" width="30%">
         <span>Is the motor calibrated?</span>
         <template #footer>
