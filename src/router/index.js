@@ -13,6 +13,7 @@ import FeetControl from "@/components/FeetControl.vue";
 import LeftLegControl2 from "@/components/LeftLegControl2.vue";
 import RightLegControl2 from "@/components/RightLegControl2.vue";
 import PlayArm from "@/components/PlayArm.vue";
+import AllAction from "@/components/AllAction.vue";
 
 const routes = [
     { path: '/1', component: Home },
@@ -28,6 +29,7 @@ const routes = [
     { path: '/5', component: MotorTest },
     { path: '/6-1', component: LeftLegControl2 },
     { path: '/6-2', component: RightLegControl2 },
+    { path: '/7-1', component: AllAction },
 ]
 
 const router = createRouter({

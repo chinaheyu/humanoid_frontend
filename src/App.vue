@@ -72,6 +72,13 @@ export default {
                             <el-menu-item index="6-1">Left Leg Control</el-menu-item>
                             <el-menu-item index="6-2">Right Leg Control</el-menu-item>
                         </el-sub-menu>
+                        <el-sub-menu index="7">
+                            <template #title>
+                                <el-icon><Plus /></el-icon>
+                                <span>演示</span>
+                            </template>
+                            <el-menu-item index="7-1">所有动作</el-menu-item>
+                        </el-sub-menu>
                     </el-menu>
                 </el-scrollbar>
             </el-aside>

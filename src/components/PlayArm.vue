@@ -110,6 +110,7 @@ export default {
             fetch(`//${this.robot_hostname}/arm/frames`)
                 .then((response) => response.json())
                 .then((data) => {
+                    this.frames = []
                     for (const item of data["frames"]) {
                         this.frames.push(item)
                         this.frames.sort()
@@ -121,6 +122,7 @@ export default {
         'robot_hostname'
     ],
     mounted() {
+        this.setTeachMode()
         this.getFrames()
     }
 }
