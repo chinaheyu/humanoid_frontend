@@ -30,7 +30,19 @@ export default {
                 'introduce_scut': '介绍SCUT',
                 'shake_hand': '握手',
                 'grab_blocks': '抓积木',
-                'yeah': '比耶'
+                'yeah': '比耶',
+                'hospital_demo1': '医院Demo01',
+                'hospital_demo2': '医院Demo02',
+                'hospital_demo3': '医院Demo03',
+                'hospital_demo4': '医院Demo04',
+                'hospital_demo5': '医院Demo05',
+                'hospital_demo6': '医院Demo06',
+                'hospital_demo7': '医院Demo07',
+                'hospital_demo8': '医院Demo08',
+                'hospital_demo9': '医院Demo09',
+                'hospital_demo10': '医院Demo10',
+                'hospital_demo11': '医院Demo11',
+                'hospital_demo12': '医院Demo12'
             }
         }
     },
