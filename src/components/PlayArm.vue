@@ -6,7 +6,7 @@
             </el-row>
         </template>
         <el-row>
-            <el-button class="frame-button" @click="playToFrame(frame, this.duration)" v-for="frame in frames">{{ frame }}</el-button>
+            <el-button class="frame-button" :disabled="teach_mode || running" @click="playToFrame(frame, this.duration)" v-for="frame in frames">{{ frame }}</el-button>
         </el-row>
         <el-row class="time-slider" justify="space-around">
             <el-slider v-model="duration" show-input :min="0.5" :max="10.0" :step="0.1" />
@@ -34,7 +34,7 @@
         </el-row>
     </el-card>
     <div>
-        注意：在退出示教模式前，必须<span style="font-weight: bold;color: red;">校准</span>手臂电机
+        注意：请先<span style="font-weight: bold;color: red;">校准</span>手臂电机
     </div>
     <el-dialog v-model="confirm_dialog_visible" title="Caution" width="30%">
         <span>Is the motor calibrated?</span>
@@ -59,7 +59,8 @@ export default {
             teach_mode: true,
             teach_frame_name: "",
             confirm_calibrated: false,
-            confirm_dialog_visible: false
+            confirm_dialog_visible: false,
+            running: false
         }
     },
     methods: {
@@ -67,14 +68,19 @@ export default {
             if (!this.confirm_calibrated) {
                 this.confirm_dialog_visible = true
             } else {
-                fetch(`//${this.robot_hostname}/arm/play`, {
-                    method: 'PUT',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        "frame_name": frame_name,
-                        "duration": duration
+                if (!this.running) {
+                    this.running = true
+                    fetch(`//${this.robot_hostname}/arm/play`, {
+                        method: 'PUT',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            "frame_name": frame_name,
+                            "duration": duration
+                        })
+                    }).then((response) => {
+                        this.running = false
                     })
-                })
+                }
             }
         },
         calibrateArm() {
@@ -87,13 +93,32 @@ export default {
                 })
         },
         setTeachMode() {
-            fetch(`//${this.robot_hostname}/arm/teach_mode`, {
-                method: 'PUT',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    "enable": this.teach_mode
+            if (this.teach_mode) {
+                fetch(`//${this.robot_hostname}/arm/play`, {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        "frame_name": 'home',
+                        "duration": 2.0
+                    })
+                }).then((response) => {
+                    fetch(`//${this.robot_hostname}/arm/teach_mode`, {
+                        method: 'PUT',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            "enable": this.teach_mode
+                        })
+                    })
                 })
-            })
+            } else {
+                fetch(`//${this.robot_hostname}/arm/teach_mode`, {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        "enable": this.teach_mode
+                    })
+                })
+            }
         },
         teachArm() {
             fetch(`//${this.robot_hostname}/arm/teach`, {
