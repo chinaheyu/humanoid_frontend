@@ -42,7 +42,10 @@ export default {
                 'hospital_demo9': '医院Demo09',
                 'hospital_demo10': '医院Demo10',
                 'hospital_demo11': '医院Demo11',
-                'hospital_demo12': '医院Demo12'
+                'hospital_demo12': '医院Demo12',
+                'lxr_demo1': '李星儒Demo1',
+                'lxr_demo2': '李星儒Demo2',
+                'lxr_demo3': '李星儒Demo3'
             }
         }
     },

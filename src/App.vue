@@ -5,6 +5,15 @@ export default {
         return {
             robot_hostname: "orin-desktop.local:5000"
         }
+    },
+    mounted() {
+        let currentHost = window.location.host
+        if (currentHost.indexOf(':') === -1) {
+            currentHost += ':5000'
+        } else {
+            currentHost = currentHost.replace(/:\d+$/, ':5000')
+        }
+        this.robot_hostname = currentHost
     }
 }
 </script>
