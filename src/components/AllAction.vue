@@ -6,7 +6,7 @@
             </el-row>
         </template>
         <el-row>
-            <el-button class="action-button" @click="doAction(action)" v-for="action in actions">{{ translateActionName(action) }}</el-button>
+            <el-button class="action-button" @click="doAction(action)" v-for="action in actions" :disabled="!this.action_mode">{{ translateActionName(action) }}</el-button>
         </el-row>
         <el-row class="control-item" align="middle">
             <span>动作模式：</span>
@@ -101,7 +101,8 @@ export default {
                     for (const item of data["actions"]) {
                         this.actions.push(item)
                     }
-                    this.actions.sort()
+                    let collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'})
+                    this.actions.sort(collator.compare)
                 })
         }
     },
@@ -116,15 +117,9 @@ export default {
 </script>
 
 <style scoped>
-.frame-button {
+.action-button {
     margin-top: 5px;
     margin-bottom: 5px;
-}
-.time-slider {
-    margin-top: 20px;
-}
-.frame-card {
-    margin-bottom: 10px;
 }
 .control-item {
     margin-top: 10px;

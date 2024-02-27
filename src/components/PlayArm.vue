@@ -138,8 +138,9 @@ export default {
                     this.frames = []
                     for (const item of data["frames"]) {
                         this.frames.push(item)
-                        this.frames.sort()
                     }
+                    let collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'})
+                    this.frames.sort(collator.compare)
                 })
         }
     },
